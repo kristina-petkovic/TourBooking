@@ -1,0 +1,114 @@
+<header>
+  <nav>
+    <div class="logo" (click)="Home()">TOUR ADVENTURE</div>
+    <ng-container *ngIf="isLoggedUser()">
+      <ul>
+        <div *ngIf="isLoggedTourist()">
+          <li class="shrink">
+            <a
+              (click)="Tours()"
+              routerLinkActive="active"
+              [routerLinkActiveOptions]="{ exact: true }">Tours</a>
+          </li>
+          <li class="shrink">
+            <a
+              (click)="TourSuggestions()"
+              routerLinkActive="active"
+              [routerLinkActiveOptions]="{ exact: true }">Suggestions</a>
+          </li>
+          <li class="shrink">
+            <a
+              (click)="Cart()"
+              routerLinkActive="active"
+              [routerLinkActiveOptions]="{ exact: true }">Cart</a>
+          </li>
+          <li class="shrink">
+            <a
+              (click)="CreateIssue()"
+              routerLinkActive="active"
+              [routerLinkActiveOptions]="{ exact: true }">New issue</a>
+          </li>
+          <li class="shrink">
+            <a
+              (click)="Issue()"
+              routerLinkActive="active"
+              [routerLinkActiveOptions]="{ exact: true }">My issues</a>
+          </li>
+        </div>
+        <div *ngIf="isLoggedAuthor()">
+
+          <li class="shrink">
+            <a
+              (click)="Tours()"
+              routerLinkActive="active"
+              [routerLinkActiveOptions]="{ exact: true }">My tours</a>
+          </li>
+          <li class="shrink">
+            <a
+              (click)="Issue()"
+              routerLinkActive="active"
+              [routerLinkActiveOptions]="{ exact: true }">My issues</a>
+          </li>
+          <li class="shrink">
+            <a
+              (click)="Report()"
+              routerLinkActive="active"
+              [routerLinkActiveOptions]="{ exact: true }">Report</a>
+          </li>  <li class="shrink">
+          <a
+            (click)="CreateTour()"
+            routerLinkActive="active"
+            [routerLinkActiveOptions]="{ exact: true }">Create new tour</a>
+        </li>
+        </div>
+
+        <div *ngIf="isLoggedAdmin()">
+          <li class="shrink">
+            <a
+              (click)="Users()"
+              routerLinkActive="active"
+              [routerLinkActiveOptions]="{ exact: true }">Users</a>
+          </li>
+          <li class="shrink">
+            <a
+              (click)="Issue()"
+              routerLinkActive="active"
+              [routerLinkActiveOptions]="{ exact: true }">Issues</a>
+          </li>
+        </div>
+
+      </ul>
+
+      <button (click)="onToggle()"> <mat-icon>flag</mat-icon></button>
+      <div [ngClass]="isToggled ? 'open-menu ' : 'sub-menu-wrap'">
+        <div class="sub-menu">
+          <div class="user-info">
+            <h2>{{ name }}</h2>
+          </div>
+          <hr/>
+          <a (click)="onLogout()" href="#" class="sub-menu-link red">
+            <p>Logout</p>
+            <span>></span>
+          </a>
+        </div>
+      </div>
+    </ng-container>
+    <ng-container *ngIf="!isLoggedUser()">
+      <ul>
+        <li class="shrink">
+          <a
+            (click)="Login()"
+            routerLinkActive="active"
+            [routerLinkActiveOptions]="{ exact: true }">LOG IN</a>
+        </li>
+        <li class="shrink">
+          <a
+            (click)="Register()"
+            routerLinkActive="active"
+            [routerLinkActiveOptions]="{ exact: true }">REGISTER</a>
+        </li>
+
+      </ul>
+    </ng-container>
+  </nav>
+</header>

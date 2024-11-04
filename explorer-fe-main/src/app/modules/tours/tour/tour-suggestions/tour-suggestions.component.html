@@ -1,0 +1,94 @@
+<app-navbar></app-navbar>
+<div class="centered-container">
+  <div *ngIf="myinterests.length > 0" class="interests-container ">
+    <h4>Current Interests:</h4>
+    <ul>
+      <li *ngFor="let interest of myinterests">
+        {{ getInterestLabel(interest) }}
+        <button class="icon-button" (click)="removeInterest(interest)">-</button>
+
+      </li>
+    </ul>
+  </div>
+
+  <div class="interests-container ">
+    <h4>Other Interests:</h4>
+    <ul>
+      <li *ngFor="let interest of availableInterests">
+        <label>
+          {{ interest}}
+        </label>
+        <button class="icon-button" (click)="addInterest(interest)">+</button>
+
+      </li>
+    </ul>
+  </div>
+
+</div>
+
+<!-- Filter by tour difficulty -->
+<div class="filter-container centered-container">
+  <label>Choose difficulty:</label>
+  <div>
+    <label>
+      <input type="radio" name="difficulty" value="3" [(ngModel)]="selectedStatus" (change)="filterToursByStatus()" /> All
+    </label>
+    <label>
+      <input type="radio" name="difficulty" value="0" [(ngModel)]="selectedStatus" (change)="filterToursByStatus()" /> Easy
+    </label>
+    <label>
+      <input type="radio" name="difficulty" value="1" [(ngModel)]="selectedStatus" (change)="filterToursByStatus()" /> Medium
+    </label>
+    <label>
+      <input type="radio" name="difficulty" value="2" [(ngModel)]="selectedStatus" (change)="filterToursByStatus()" /> Hard
+    </label>
+  </div>
+</div>
+<div>
+
+  <div *ngFor="let tour of tours" class="tour-item ">
+    <div class="centered-container">
+
+      <div id="map-{{tour.id}}" class="tour-map "></div>
+    </div>
+
+    <table class="tour-table">
+      <thead>
+      <tr>
+        <th colspan="2">
+          <h2>TOUR ID:{{ tour.id }}</h2>
+          <h2>{{ tour.name }}</h2>
+        </th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr>
+        <td><strong>Difficulty:</strong></td>
+        <td>{{ getDifficultyLabel(tour.difficulty) }}</td>
+      </tr>
+      <tr>
+        <td><strong>Price:</strong></td>
+        <td>{{ tour.price | currency }}</td>
+      </tr>
+      <tr>
+        <td><strong>Ticket Count:</strong></td>
+        <td>{{ tour.ticketCount }}</td>
+      </tr>
+
+      </tbody>
+    </table>
+    <div *ngIf="tour.interests && tour.interests.length > 0"  >
+      <h4><strong>INTERESTS:</strong></h4>
+      <ul>
+        <p *ngFor="let interest of tour.interests"><strong>{{ getInterestLabel(interest) }}</strong></p>
+      </ul>
+    </div>
+    <div class="actions">
+      <button (click)="previewTour(tour)">Preview</button>
+      <button (click)="addToCart(tour)" >Add to Cart</button>
+    </div>
+  </div>
+
+
+</div>
+<app-footer></app-footer>

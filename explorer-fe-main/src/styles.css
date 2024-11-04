@@ -1,0 +1,82 @@
+@import "~leaflet/dist/leaflet.css";
+/* Add some general styles for the container */
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+/* Style the form headers */
+h2 {
+  text-align: center;
+  margin-bottom: 20px;
+  color: #333;
+  font-size: 2rem;
+}
+
+/* Style each form group */
+.form-group {
+  margin-bottom: 15px;
+}
+
+/* Style labels */
+.form-group label {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 5px;
+  color: #555;
+}
+
+/* Style form controls */
+.form-control {
+  width: 100%;
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+}
+
+/* Style textareas */
+textarea.form-control {
+  height: 100px;
+  resize: vertical;
+}
+
+/* Style checkboxes */
+.form-group input[type="checkbox"] {
+  margin-right: 10px;
+}
+
+/* Style the button */
+.btn {
+  display: inline-block;
+  padding: 10px 20px;
+  font-size: 1rem;
+  font-weight: bold;
+  text-align: center;
+  text-decoration: none;
+  color: #fff;
+  background-color: #007bff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.btn:hover {
+  background-color: #0056b3;
+}
+
+/* Style the map container */
+#map {
+  margin: 20px 0;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+}
+
+/* Add some spacing between form elements */
+.form-group + .form-group {
+  margin-top: 10px;
+}
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

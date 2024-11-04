@@ -1,0 +1,37 @@
+.table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.table th, .table td {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+.table th {
+  background-color: #f2f2f2;
+  text-align: left;
+}
+
+.btn {
+  margin-right: 5px;
+}
+.btn-revise {
+  background-color: #007bff; /* Blue */
+  color: white;
+}
+
+.btn-resolve {
+  background-color: #28a745; /* Green */
+  color: white;
+}
+
+.btn-pending {
+  background-color: #ffc107; /* Yellow */
+  color: white;
+}
+
+.btn-decline {
+  background-color: #dc3545; /* Red */
+  color: white;
+}

@@ -1,0 +1,18 @@
+<h1>Key Point Details</h1>
+<div>
+  <label for="name">Name:</label>
+  <input type="text" id="name" [(ngModel)]="data.name">
+
+  <label for="description">Description:</label>
+  <textarea id="description" [(ngModel)]="data.description"></textarea>
+
+  <label for="image">Image:</label>
+  <input type="file" id="image" (change)="onFileChange($event)">
+
+
+</div>
+<div >
+  <button (click)="onSave()">Save</button>
+  <button (click)="onCancel()">x</button>
+</div>
+

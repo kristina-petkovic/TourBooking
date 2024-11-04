@@ -1,0 +1,37 @@
+<!-- cart.component.html -->
+<app-navbar></app-navbar>
+
+<div *ngIf="cart">
+  <h2>Your Cart</h2>
+
+  <ul>
+    <li *ngFor="let item of cart.cartItems">
+      <div class="tour-item">
+        <h3>{{ item.tour.name }}</h3>
+        <p>{{ item.tour.description }}</p>
+
+        <div class="tour-details">
+          <p><strong>Difficulty:</strong> {{ item.tour.difficulty }}</p>
+          <p><strong>Interests:</strong> {{ item.tour.interests ? item.tour.interests.join(', ') : 'None' }}</p>
+          <p><strong>Ticket count:</strong> {{ item.count }}
+            <button *ngIf="item.count>1" (click)="removeOne(item.id)" class="icon-button">-</button>
+          </p>
+
+          <p><strong>Price:</strong> {{ item.tour.price | currency }}</p>
+        </div>
+
+        <button (click)="removeTour(item.id)" class="delete-button">Remove from Cart</button>
+
+       </div>
+      <hr>
+    </li>
+  </ul>
+
+  <div class="cart-summary">
+    <h3>Total Price: {{ cart.price | currency }}</h3>
+    <button (click)="purchase(cart)" class="delete-button">PURCHASE</button>
+
+  </div>
+</div>
+
+<app-footer></app-footer>

@@ -1,0 +1,238 @@
+/* Styles for the tour list */
+.tour-container {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.tour-map {
+  height: 300px; /* Or any appropriate height */
+  width: 100%;   /* Or any appropriate width */
+}
+
+.tour-item {
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 15px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  background-color: #fff;
+}
+
+.tour-item h2 {
+  margin-top: 0;
+  color: #333;
+}
+
+.tour-item p {
+  margin: 5px 0;
+}
+
+.tour-item img {
+  max-width: 100%;
+  border-radius: 4px;
+}
+.keypoint-container {
+  margin-top: 20px;
+}
+
+.keypoint-item {
+  border: 1px solid #eee;
+  border-radius: 6px;
+  padding: 10px;
+  background-color: #fafafa;
+  margin-bottom: 10px;
+}
+
+.keypoint-item h3 {
+  margin-top: 0;
+}
+
+.keypoint-item img {
+  max-width: 100%;
+  border-radius: 4px;
+  display: block;
+  margin-bottom: 10px;
+}
+
+.keypoint-item p {
+  margin: 5px 0;
+}
+
+.coordinates {
+  font-size: 0.9em;
+  color: #555;
+}
+/* Existing styles... */
+
+.tour-item {
+  position: relative;
+}
+
+/* Button Styles */
+button {
+  margin: 10px 5px;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  background-color: #007bff;
+  color: white;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #0056b3;
+}
+
+.preview-modal {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 80%;
+  max-width: 600px;
+  background-color: white;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  z-index: 1000;
+}
+
+.preview-modal h2 {
+  margin-top: 0;
+}
+
+.preview-modal img {
+  max-width: 100%;
+  border-radius: 4px;
+}
+
+.preview-modal button {
+  background-color: #dc3545;
+  border-color: #dc3545;
+}
+
+.preview-modal button:hover {
+  background-color: #c82333;
+}
+.keypoint-container {
+  margin-top: 20px;
+}
+
+.keypoint-item {
+  border: 1px solid #eee;
+  border-radius: 6px;
+  padding: 10px;
+  background-color: #fafafa;
+  margin-bottom: 10px;
+}
+
+.keypoint-item h3 {
+  margin-top: 0;
+}
+
+.keypoint-item img {
+  max-width: 100%;
+  border-radius: 4px;
+  display: block;
+  margin-bottom: 10px;
+}
+
+.keypoint-item p {
+  margin: 5px 0;
+}
+/* CSS for the filter-container */
+.filter-container {
+  margin: 20px;
+  padding: 15px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  background-color: #f9f9f9;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Styling the label */
+.filter-container label {
+  display: block;
+  margin-bottom: 10px;
+  font-weight: bold;
+  color: #333;
+}
+
+/* Styling the radio button labels */
+.filter-container div label {
+  display: inline-block;
+  margin-right: 20px;
+  cursor: pointer;
+  font-size: 16px;
+  color: #555;
+}
+
+/* Styling the radio button input */
+.filter-container input[type="radio"] {
+  margin-right: 8px;
+}
+
+/* Add hover effect on labels */
+.filter-container div label:hover {
+  color: #007bff;
+  font-weight: bold;
+}
+/* CSS for the interests section */
+.interests-container {
+
+  margin: 20px;
+  padding: 15px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  background-color: #f9f9f9;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Styling the heading */
+.interests-container h4 {
+  margin-bottom: 10px;
+  font-size: 18px;
+  color: #333;
+  font-weight: bold;
+}
+
+/* Styling the unordered list */
+.interests-container ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+/* Styling each list item */
+.interests-container ul p {
+  margin: 5px 0;
+  padding: 8px;
+  border-bottom: 1px solid #ddd;
+  font-size: 16px;
+  color: #555;
+}
+
+/* Removing the border from the last item */
+.interests-container ul p:last-child {
+  border-bottom: none;
+}
+
+/* Optional: Add hover effect to list items */
+.interests-container ul p:hover {
+  cursor: pointer;
+}
+.icon-button {
+  background: none;
+  border: none;
+  font-size: 1.5em;
+  cursor: pointer;
+  color: #007bff; /* or any color you prefer */
+  padding: 0;
+  margin: 0;
+}
+
+.icon-button:hover {
+  background-color: aliceblue;
+  color: #007bff; /* or any hover color you prefer */
+}
+

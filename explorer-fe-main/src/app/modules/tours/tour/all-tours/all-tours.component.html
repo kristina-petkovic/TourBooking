@@ -1,0 +1,80 @@
+<app-navbar></app-navbar>
+
+<!-- Dropdown for filtering by tour status -->
+<div class="filter-container centered-container" *ngIf="AuthorLoggedIn">
+  <label>Filter by Status:</label>
+  <div>
+    <label>
+      <input type="radio" name="status" value="" [(ngModel)]="selectedStatus" (change)="filterToursByStatus()" /> All
+    </label>
+    <label>
+      <input type="radio" name="status" value="draft" [(ngModel)]="selectedStatus" (change)="filterToursByStatus()" /> Draft
+    </label>
+    <label>
+      <input type="radio" name="status" value="archived" [(ngModel)]="selectedStatus" (change)="filterToursByStatus()" /> Archived
+    </label>
+    <label>
+      <input type="radio" name="status" value="published" [(ngModel)]="selectedStatus" (change)="filterToursByStatus()" /> Published
+    </label>
+  </div>
+</div>
+<div class="filter-container centered-container" *ngIf="TouristLoggedIn">
+  <label>Filter by Status:</label>
+  <div>
+    <label>
+      <input type="radio" name="status" value="" [(ngModel)]="selectedStatus" (change)="filterToursByStatus()" /> All
+    </label>
+    <label>
+      <input type="radio" name="status" value="top" [(ngModel)]="selectedStatus" (change)="filterToursByStatus()" /> Top authors
+    </label>
+  </div>
+</div>
+
+<!-- Displaying tours -->
+<div *ngFor="let tour of filteredTours" class="tour-item">
+  <div id="map-{{tour.id}}" class="tour-map"></div>
+
+  <table class="tour-table">
+    <thead>
+    <tr>
+      <th colspan="2">
+        <h2>TOUR ID:{{ tour.id }}</h2>
+        <h2>{{ tour.name }}</h2>
+      </th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td><strong>Difficulty:</strong></td>
+      <td>{{ getDifficultyLabel(tour.difficulty) }}</td>
+    </tr>
+    <tr>
+      <td><strong>Price:</strong></td>
+      <td>{{ tour.price | currency }}</td>
+    </tr>
+    <tr>
+      <td><strong>Ticket Count:</strong></td>
+      <td>{{ tour.ticketCount }}</td>
+    </tr>
+    <tr *ngIf="AuthorLoggedIn">
+      <td><strong>STATUS:</strong></td>
+      <td>{{ statusLabel(tour.status.toString()) }}</td>
+    </tr>
+
+    </tbody>
+  </table>
+
+  <div class="actions" *ngIf="TouristLoggedIn">
+    <button (click)="previewTour(tour)">Preview</button>
+    <button (click)="addToCart(tour)" *ngIf="TouristLoggedIn">Add to Cart</button>
+  </div>
+
+  <div class="actions" *ngIf="AuthorLoggedIn">
+    <button (click)="archive(tour)" *ngIf="AuthorLoggedIn && tour.status.toString() === '1'">Archive</button>
+    <button id="publishbutton" (click)="publish(tour)" *ngIf="AuthorLoggedIn && tour.status.toString() === '0'">Publish</button>
+
+  </div>
+
+</div>
+
+<app-footer></app-footer>

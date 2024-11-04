@@ -1,0 +1,39 @@
+<app-navbar></app-navbar>
+<table class="table">
+  <thead>
+  <tr>
+    <th>Author ID</th>
+    <th>Tour ID</th>
+    <th>Tourist ID</th>
+    <th>Text</th>
+    <th>Status</th>
+    <th>Created At</th>
+    <th>Updated At</th>
+    <th>Actions</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let issue of issues">
+    <td>{{ issue.authorId }}</td>
+    <td>{{ issue.tourId }}</td>
+    <td>{{ issue.touristId }}</td>
+    <td>{{ issue.text }}</td>
+    <td>{{ getStatusLabel(issue.status) }}</td>
+    <td>{{ issue.createdAt | date }}</td>
+    <td>{{ issue.updatedAt ? (issue.updatedAt | date) : 'N/A' }}</td>
+    <td  *ngIf="AdminLoggedIn && issue.status === 1">
+
+      <button class="btn btn-pending" (click)="pendingIssue(issue)">Pending</button>
+      <button class="btn btn-decline"  (click)="declineIssue(issue)">Decline</button>
+
+    </td>
+    <td *ngIf="AuthorLoggedIn && issue.status === 0">
+      <button class="btn btn-revise"  (click)="reviseIssue(issue)">Revise</button>
+      <button class="btn btn-resolve"  (click)="resolveIssue(issue)">Resolve</button>
+
+    </td>
+  </tr>
+  </tbody>
+</table>
+
+<app-footer></app-footer>

@@ -1,0 +1,39 @@
+<app-navbar></app-navbar>
+<button (click)="getReport()">Get this month report</button>
+<div *ngIf="report">
+  <h2>Report Summary</h2>
+  <p>Author ID: {{ report.authorId }}</p>
+  <p>Date: {{ report.date | date }}</p>
+  <p>Sold Tours Count: {{ report.soldToursCount }}</p>
+  <p>Total Profit: {{ report.totalProfit | currency }}</p>
+  <p>Sales Increase Percentage: {{ report.salesIncreasePercentage }}</p>
+  <p>Top Selling Tour ID: {{ report.topSellingTourId }}</p>
+  <p>Top Selling Tour Count: {{ report.topSellingTourCount }}</p>
+  <p>Least Selling Tour ID: {{ report.leastSellingTourId }}</p>
+  <p>Least Selling Tour Count: {{ report.leastSellingTourCount }}</p>
+</div>
+<!-- Table for tours with no sales in the last three months -->
+<div *ngIf="noSalesTours && noSalesTours.length > 0">
+  <h3>Tours with No Sales in the last 3 months and not already archived:</h3>
+  <table>
+    <thead>
+    <tr>
+      <th>Tour ID</th>
+      <th>Tour Name</th>
+      <th>Actions</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let tour of noSalesTours">
+      <td>{{ tour.id }}</td>
+      <td>{{ tour.name }}</td>
+      <td>
+        <!-- Button to archive the tour -->
+        <button (click)="archiveTour(tour.id)">Archive</button>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+</div>
+
+<app-footer></app-footer>

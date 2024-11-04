@@ -1,0 +1,61 @@
+<app-navbar></app-navbar>
+
+
+    <table class="tour-table">
+      <thead>
+      <tr>
+        <th colspan="2">
+          <h2>TOUR ID:{{ tour.id }}</h2>
+          <h2><strong>{{ tour.name }}</strong></h2>
+          <h3>{{ tour.description }}</h3>
+        </th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr>
+        <td><strong>Difficulty:</strong></td>
+        <td>{{ getDifficultyLabel(tour.difficulty) }}</td>
+      </tr>
+      <tr>
+        <td><strong>Price:</strong></td>
+        <td>{{ tour.price | currency }}</td>
+      </tr>
+      <tr>
+        <td><strong>Ticket Count:</strong></td>
+        <td>{{ tour.ticketCount }}</td>
+      </tr>
+
+      </tbody>
+    </table>
+
+    <table class="keypoints-table ">
+      <thead>
+      <tr>
+
+        <th>Order</th>
+        <th>Key Point</th>
+        <th>Description</th>
+        <th>Image</th>
+        <th>Coordinates</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let keyPoint of tour.keyPoints">
+        <td>{{ keyPoint.order }}</td>
+        <td>{{ keyPoint.name }}</td>
+        <td>{{ keyPoint.description }}</td>
+        <td><img [src]="keyPoint.image" alt="{{ keyPoint.name }}" style="width: 100px; height: auto;" /></td>
+        <td>{{ keyPoint.latitude }}, {{ keyPoint.longitude }}</td>
+      </tr>
+      </tbody>
+    </table>
+
+<div class="centered-container">
+
+  <div id="map-{{tour.id}}" class="tour-map "></div>
+</div>
+    <div class="actions">
+
+      <button (click)="addToCart(tour)" >Add to Cart</button>
+    </div>
+<app-footer></app-footer>

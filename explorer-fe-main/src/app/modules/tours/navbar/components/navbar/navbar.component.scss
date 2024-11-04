@@ -1,0 +1,159 @@
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+
+nav {
+  background-color:  #183467;
+  width: 100%;
+  padding: 10px 10%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+nav ul {
+  width: 100%;
+  text-align: end;
+}
+
+nav ul li {
+  display: inline-block;
+  list-style: none;
+  margin: 10px 20px;
+}
+
+nav ul li a {
+  color: white;
+  font-size: 1.3rem;
+  text-decoration: none;
+
+  cursor: pointer; /* Added cursor pointer */
+}
+
+.active {
+  text-decoration: underline;
+  border: 1px solid lightblue;
+  padding: 9px;
+
+}
+
+.logo {
+  text-transform: uppercase;
+  letter-spacing: 10px;
+  color: white;
+  font-size: 1.5rem;
+  line-height: 1.7rem;
+  cursor: default;
+}
+
+.user-pic {
+  width: 50px;
+  border-radius: 50%;
+  cursor: pointer;
+  margin-left: 30px;
+}
+
+.sub-menu-wrap {
+  position: absolute;
+  top: 100%;
+  right: 10%;
+  width: 320px;
+  max-height: 0px;
+  overflow: hidden;
+  transition: max-height 0.5s;
+}
+
+.open-menu {
+  position: absolute;
+  top: 100%;
+  right: 10%;
+  width: 320px;
+  max-height: 400px;
+  overflow: hidden;
+  transition: max-height 0.5s;
+  z-index: 99;
+}
+
+.sub-menu {
+  border: 1px solid black;
+  background-color: white;
+  padding: 20px;
+  margin: 10px;
+  border-radius: 10px;
+}
+
+.user-info {
+  display: flex;
+  align-items: center;
+}
+
+.user-info h2 {
+  font-weight: 500;
+  margin: 0;
+}
+
+.user-info img {
+  width: 50px;
+  border-radius: 50%;
+  margin-right: 15px;
+}
+
+.sub-menu hr {
+  border: 0;
+  height: 1px;
+  width: 100%;
+  background: #ccc;
+  margin: 15px 0 10px;
+}
+
+.sub-menu-link {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  color: darkblue;
+  margin-bottom: 20px;
+
+  cursor: pointer; /* Added cursor pointer */
+}
+
+.sub-menu-link p {
+  width: 100%;
+  margin: 0;
+}
+
+.sub-menu-link img {
+  width: 40px;
+  border-radius: 50%;
+  padding: 6px;
+  margin-right: 15px;
+  background-color: gray;
+
+  cursor: pointer; /* Added cursor pointer */
+}
+
+.sub-menu-link span {
+  margin-right: 10px;
+  font-size: 20px;
+  transition: transform 0.5s;
+}
+
+.sub-menu-link:hover span {
+  transform: translateX(5px);
+}
+
+.sub-menu-link:hover p {
+  font-weight: 600;
+}
+
+.shrink {
+  transition: all .2s ease-in-out;
+}
+
+.shrink:hover {
+  transform: scale(0.9);
+}

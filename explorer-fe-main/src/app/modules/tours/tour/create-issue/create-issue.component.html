@@ -1,0 +1,42 @@
+<app-navbar></app-navbar>
+<div class="container">
+  <h2>Purchase List</h2>
+  <table class="table table-striped">
+    <thead>
+    <tr>
+      <th>Tour Name</th>
+      <th>Tourist ID</th>
+      <th>Price</th>
+      <th>Purchase Date</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let purchase of purchases">
+      <td>{{ purchase.tourName }}</td>
+      <td>{{ purchase.touristId }}</td>
+      <td>{{ purchase.price | currency }}</td>
+      <td>{{ purchase.purchaseDate | date:'short' }}</td>
+      <td>
+        <button class="btn btn-primary" (click)="createIssue(purchase)">create issue</button></td>
+    </tr>
+    </tbody>
+  </table>
+</div>
+<div *ngIf="showIssueForm" class="issue-form">
+  <h3>Create Issue</h3>
+  <form (ngSubmit)="submit()">
+
+    <div class="form-group">
+      <label for="text">Name</label>
+      <input id="name" [(ngModel)]="issueDTO.name" name="name" class="form-control" required>
+    </div>
+    <div class="form-group">
+      <label for="text">Text</label>
+      <textarea id="text" [(ngModel)]="issueDTO.text" name="text" class="form-control" required></textarea>
+    </div>
+
+    <button type="submit" class="btn btn-success">Submit Issue</button>
+  </form>
+</div>
+
+<app-footer></app-footer>
